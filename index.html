@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>halo</title>
+  </head>
+  <body>
+    <?php
+session_start(); // Start or resume the session
+
+if (!isset($_SESSION['username'])) {
+    header("Location: index.html"); // Redirect to the login page if not logged in
+    exit();
+}
+
+$username = $_SESSION['username';
+
+if (isset($_POST['logout'])) {
+    // User clicked the logout button, so we destroy the session and redirect to the login page.
+    session_destroy();
+    header("Location: index.html");
+    exit();
+}
+
+// Define the URL you want to redirect to after successful login.
+$redirectTo = "djboicool.github.io/soaringboi"; // Replace with your desired URL
+
+if (isset($_POST['redirect'])) {
+    header("Location: $redirectTo"); // Redirect to the custom page
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Page</title>
+</head>
+<body>
+    <h2>Welcome, <?php echo $username; ?></h2>
+    <form method="post" action="">
+        <input type="submit" name="logout" value="Logout">
+        <input type="submit" name="redirect" value="Go to Custom Page">
+    </form>
+    
+</body>
+</html>
+
+    
