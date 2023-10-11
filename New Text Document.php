@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (array_key_exists($username, $users) && $users[$username] === $password) {
         // Authentication successful
         $_SESSION['username'] = $username;
-        header("Location: restricted_page.php"); // Redirect to the restricted page
+        header("Location: djboicool.github.io/soaringboi"); // Redirect to the restricted page
     } else {
         // Authentication failed
-        header("Location: login.html?login=failed"); // Redirect to the sign-in page with an error message
+        header("Location: ?login=failed"); // Redirect to the sign-in page with an error message
     }
 }
 ?>
